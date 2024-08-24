@@ -1,0 +1,12 @@
+name: End-to-end tests #nome da pipeline
+on: [push] #será disparado sempre que houver um push de qualquer branch
+jobs:
+  cypress-run:
+    runs-on: ubuntu-20.04 #vai rodar nessa versão
+    steps: 
+      - name: Checkout #1º passo checkout - vai baixar o código do projeto no workspace do github actions
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run #2º vai rodar cypress run com a imagem abaixo
+        uses: cypress-io/github-action@v2
